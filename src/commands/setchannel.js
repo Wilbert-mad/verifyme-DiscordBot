@@ -6,11 +6,12 @@ module.exports.run = async (client, message, args) => {
 
     let channel = message.mentions.channels.first();
 
+    if (!channel) return message.channel.send("You need a channel")
+    .then(m => m.delete({timeout: 5000}));
+    
     let channelhere = message.channel.id;
     if (channel.id === `${channelhere}`) return message.channel.send("You cant \`setchannel\` well you are in the channel");
 
-    if (!channel) return message.channel.send("You need a channel")
-        .then(m => m.delete({timeout: 5000}));
 
     client.channel[message.guild.id] = {
         channelID: channel.id

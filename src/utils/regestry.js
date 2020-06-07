@@ -1,6 +1,5 @@
-const fs = require("fs").promises;
-
 async function commands(client) {
+    let fs = require("fs");
     fs.readdir("./src/commands/", (err, files) => {
         if (err) console.error(err);
         let jsfiles = files.filter(f => f.split(".").pop() === "js");
@@ -19,6 +18,7 @@ async function commands(client) {
     });
 }
 async function events(client) {
+    let fs = require("fs").promises;
     const evtFiles = await fs.readdir('./src/events');
 	evtFiles.forEach(f => {
 		const evtName = f.split('.')[0];

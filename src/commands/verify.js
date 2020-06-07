@@ -16,17 +16,19 @@ module.exports.run = async (client, message, args) => {
     if (!rolename) return;
 
     if (message.channel.id === `${channelI}`) {
-        await message.delete().catch(err => console.log(err));
         const role = message.guild.roles.cache.find(r => r.name === `${rolename}`);
         if (role) {
             try {
                 await message.member.roles.add(role);
             } catch (err) {}
         }
+        if(message.deletable) {
+            await message.delete().catch(err => console.log(err))
+        }
     }
 }
 
 module.exports.help = {
     name: "verify",
-    aliases: []
+    aliases: ['accept', 'yes']
 }
