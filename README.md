@@ -19,7 +19,7 @@ The main propes of this bot is to allow users to verify there server easyer with
 >   * getInfo === >info (Get info of the bots uptime, guild/server count, version of the bot)
 
 # Help out
-Join are [suport server](https://discord.gg/rKGXPK6) and add the new bot [Ace6](https://discordapp.com/oauth2/authorize?client_id=713169533438787615scope=botpermissions=1014492254)to your server.
+Join are [suport server](https://discord.gg/rKGXPK6) and add the new bot [Ace6](https://discordapp.com/oauth2/authorize?client_id=713169533438787615scope=botpermissions=1014492254) to your server.
 # TODO
 > * [x] Get a database
 > * [x] set channel
