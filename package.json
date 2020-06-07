@@ -1,0 +1,18 @@
+{
+  "name": "verifyme",
+  "version": "1.0.0",
+  "description": "Verify bot",
+  "main": "./src/bot.js",
+  "scripts": {
+    "start": "node ./src/bot.js",
+    "dev": "nodemon ./src/bot.js"
+  },
+  "author": "Xa_puppet",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "moment": "^2.25.3"
+  }
+}

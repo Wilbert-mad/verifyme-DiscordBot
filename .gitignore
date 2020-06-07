@@ -1,0 +1,6 @@
+node_modules
+website
+.env
+nodemon.json
+package-lock.json
+src/commands/test.js
