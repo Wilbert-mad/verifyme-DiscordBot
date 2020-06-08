@@ -1,29 +1,43 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
-    function dts(ms) {
-        const min = Math.floor((ms / (1000 * 60)) % 60).toString()
-        const hrs = Math.floor((ms / (1000 * 60 * 12)) % 60).toString()
-        return `${hrs.padStart(2, '0')}: ${min.padStart(2, '0')} `
-    }
-
-    let link = "(server)[https://discord.gg/4rqgZFk]";
-    let embed = new MessageEmbed()
-        .setAuthor("Help")
-        .setColor("RANDOM")
-        .addField("Bot's Server", link)
-        .addField("commands", "For Commands >help pages [number]")
-        .addField("this command is cerrently not working")
-        .addtimestamp()
-
-    message.channel.send(embed)
-
-    if (args[0]) {
-
-    }
-    else if (args[1] === "pages") {
-        message.channel.send("in development")
-    }
+    var helps = [
+        {
+            name: "setchannel",
+            aliases: ["channel"],
+            discription: "Set the channel that members will verify on"
+        },
+        {
+            name: "setrole",
+            aliases: ["role"],
+            discription: "Role given to all members"
+        },
+        {
+            name: "setprefix",
+            aliases: ["prefix"],
+            discription: "Set the prefix for you server/guild"
+        },
+        {
+            name: "verify",
+            aliases: ["accept", "yes"],
+            discription: "Command used to verify your membeds"
+        },
+        {
+            name: "info",
+            aliases: ["botinfo"],
+            discription: "Get info on the bot and more..."
+        }
+    ];
+        for(var i = 0;i < helps.length;i++) {
+            var fn;
+            fn += "\n- **"+helps[i].name;
+            fn += "**\nAliases: \`"+helps[i].aliases.join(", ")+"\`";
+            fn += "\nDiscription: "+helps[i].discription;
+        }
+        const embed = new MessageEmbed()
+        .addField("Commands", fn)
+        .setColor("BLUE")
+        message.channel.send(embed)
 }
 
 module.exports.help = {

@@ -12,6 +12,11 @@ module.exports = async (client, message) => {
 	let messageArray = message.content.split(" ");
 	let cmd = messageArray[0];
 	let args = messageArray.slice(1);
+	
+	if (cmd.startsWith(prefix)) {
+		let cdm = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)))
+		if (cdm) cdm.run(client, message, args);
+	};
 
 	let channelId = JSON.parse(fs.readFileSync("./src/db/channel.json", "utf8"))
 	if (!channelId[message.guild.id]) return;
@@ -27,7 +32,4 @@ module.exports = async (client, message) => {
 			} catch (err) {}
 		}
 	}
-	if (!cmd.startsWith(prefix)) return;
-	let cdm = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)))
-	if (cdm) cdm.run(client, message, args);
 }

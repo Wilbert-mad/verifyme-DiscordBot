@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
     }
 
     let info = "1.0.0";
-    let devs = ["Xa_puppet#2393", "GamerCreator1#1466"]
+    let devs = ["Xa_puppet#2393", " GamerCreator1#1466"]
     let embed = new MessageEmbed()
         .setAuthor("VerifyMe", client.user.avatarURL())
         .setColor("#32CD32")
@@ -18,11 +18,13 @@ module.exports.run = async (client, message, args) => {
         .addField("Uptime", `${deraton(client.uptime)}`, true)
         .addField("Guilds", client.guilds.cache.size, true)
         .addField("Library", "discord.js", true)
+        .addField("Bot Support", `[Support Server](https://discord.gg/GjpyBE)`)
+        .setTimestamp()
 
     message.channel.send(embed);
 }
 
 module.exports.help = {
     name: "info",
-    aliases: []
+    aliases: ["botinfo"]
 }

@@ -8,7 +8,7 @@ client.logger = require('./utils/logger');
 client.channel = require("./db/channel.json"), (client);
 client.roles = require("./db/role.json");
 (async () => {
-	await commands(client);
 	await events(client);
+	await commands(client);
 	await client.login(process.env.BOT_TOKEN);
 })();
