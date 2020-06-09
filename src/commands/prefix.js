@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const fs = require("fs");
 
 module.exports.run = async (client, message, args) => {
-    if (!message.member.hasPermission(["MANAGE_GUILD", "ADMINISTRATOR"]) || !message.guild.owner) return message.channel.send("You need permissions");
+    if (!message.member.hasPermission(["MANAGE_GUILD", "ADMINISTRATOR"]) || !message.guild.owner) return message.channel.send("You don't have permissions");
     if (!args[0]) return message.channel.send(`Usage: setprefix \`<NewPrefix>\`\n Exampal: \`>setprefix ?\``);
 
     let prefixs = JSON.parse(fs.readFileSync("./src/db/prefixs.json", "utf8"))

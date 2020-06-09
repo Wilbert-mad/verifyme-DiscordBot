@@ -29,3 +29,8 @@ Join are [suport server](https://discord.gg/rKGXPK6) and add the new bot [Ace6](
 > * [x] message unknown error fixed for now
 > * [x] help command
 > * [ ] bug fix for verify command
+
+## Dashboard
+> * [ ] link .json database to dashboard or move to mongoose
+> * [ ] set the role/channel/prefix with on the board
+> * [ ] see who has been verified on the server/guild

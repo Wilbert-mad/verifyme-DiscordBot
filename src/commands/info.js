@@ -8,17 +8,19 @@ module.exports.run = async (client, message, args) => {
         return `${days.padStart(1, '0')} days, ${hrs.padStart(2, '0')} hours, ${min.padStart(2, '0')} minutes, `
     }
 
+    // if (message.guild.me.hasPermission("Message"))
+
     let info = "1.0.0";
-    let devs = ["Xa_puppet#2393", " GamerCreator1#1466"]
+    let devs = ["Xa_puppet#2393"]
     let embed = new MessageEmbed()
-        .setAuthor("VerifyMe", client.user.avatarURL())
-        .setColor("#32CD32")
+        .setAuthor(`${client.user.username}`, client.user.avatarURL())
+        .setColor("#4876FF")
         .addField("Version", `${info}`, true)
         .addField("Creator's", `${devs}`, true)
         .addField("Uptime", `${deraton(client.uptime)}`, true)
         .addField("Guilds", client.guilds.cache.size, true)
         .addField("Library", "discord.js", true)
-        .addField("Bot Support", `[Support Server](https://discord.gg/GjpyBE)`)
+        .addField("Bot Support", `[Support Server](https://discord.gg/GjpyBE)`, true)
         .setTimestamp()
 
     message.channel.send(embed);

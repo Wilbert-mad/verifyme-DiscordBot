@@ -19,8 +19,13 @@ module.exports.run = async (client, message, args) => {
         },
         {
             name: "verify",
-            aliases: ["accept", "yes"],
+            aliases: ["accept"],
             discription: "Command used to verify your membeds"
+        },
+        {
+            name: "help",
+            aliases: ["h"],
+            discription: "Get the help tabal for commands"
         },
         {
             name: "info",
@@ -35,6 +40,7 @@ module.exports.run = async (client, message, args) => {
             fn += "\nDiscription: "+helps[i].discription;
         }
         const embed = new MessageEmbed()
+        .setAuthor(`${client.user.username}`, client.user.avatarURL())
         .addField("Commands", fn)
         .setColor("BLUE")
         message.channel.send(embed)

@@ -1,6 +1,6 @@
 async function commands(client) {
-    let fs = require("fs");
-    fs.readdir("./src/commands/", (err, files) => {
+    let { readdir } = require("fs");
+    readdir("./src/commands/", (err, files) => {
         if (err) console.error(err);
         let jsfiles = files.filter(f => f.split(".").pop() === "js");
         if (jsfiles.length <= 0) {
@@ -18,8 +18,8 @@ async function commands(client) {
     });
 }
 async function events(client) {
-    let fs = require("fs").promises;
-    const evtFiles = await fs.readdir('./src/events');
+    let { readdir } = require("fs").promises;
+    const evtFiles = await readdir('./src/events');
 	evtFiles.forEach(f => {
 		const evtName = f.split('.')[0];
 		client.logger.log(`Loading Event: ${evtName}`);

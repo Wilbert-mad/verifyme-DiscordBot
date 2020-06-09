@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 module.exports.run = async (client, message, args) => {
-    if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) || !message.guild.owner) return message.channel.send("You need permissions");
+    if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) || !message.guild.owner) return message.channel.send("You don't have permissions");
     if (!message.guild.me.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return message.channel.send("I don't have permissions");
 
     let channel = message.mentions.channels.first();
