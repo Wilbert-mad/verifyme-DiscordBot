@@ -4,3 +4,4 @@ website
 nodemon.json
 package-lock.json
 src/commands/test.js
+inex.json

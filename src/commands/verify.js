@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
     if (!channelId[guild.id])
         return message.channel.send("Looks like you havent setup a **Channel**");
     let channelI = channelId[guild.id].channelID;
-    if (!channelI) return;
+    if (!channelI) return message.channel.send("Looks like you have a Guild profile but no channel.");
 
     let rolex = JSON.parse(fs.readFileSync("./src/db/role.json", "utf8"))
     if (!rolex[guild.id])
@@ -23,9 +23,9 @@ module.exports.run = async (client, message, args) => {
         if (role) {
             try {
                 await message.member.roles.add(role);
+                await message.member.send(`Role \`${rolename}\` has been given to you on \`${guild.name}\` server.`)
             } catch (err) {}
         }
-        message.member.send(`Role \`${rolename}\` has been given to you on \`${guild.name}\` server.`)
     }
 }
 

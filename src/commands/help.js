@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
+    var fn = '';
     var helps = [
         {
             name: "setchannel",
@@ -33,17 +34,16 @@ module.exports.run = async (client, message, args) => {
             discription: "Get info on the bot and more..."
         }
     ];
-        for(var i = 0;i < helps.length;i++) {
-            var fn;
-            fn += "\n- **"+helps[i].name;
-            fn += "**\nAliases: \`"+helps[i].aliases.join(", ")+"\`";
-            fn += "\nDiscription: "+helps[i].discription;
-        }
-        const embed = new MessageEmbed()
+    for (var i = 0; i < helps.length; i++) {
+        fn += "\n- **" + helps[i].name;
+        fn += "**\nAliases: \`" + helps[i].aliases.join(", ") + "\`";
+        fn += "\nDiscription: " + helps[i].discription;
+    }
+    const embed = new MessageEmbed()
         .setAuthor(`${client.user.username}`, client.user.avatarURL())
         .addField("Commands", fn)
         .setColor("BLUE")
-        message.channel.send(embed)
+    message.channel.send(embed)
 }
 
 module.exports.help = {
